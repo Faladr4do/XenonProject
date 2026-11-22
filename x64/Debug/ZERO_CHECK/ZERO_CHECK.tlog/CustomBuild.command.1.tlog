@@ -1,0 +1,10 @@
+^C:\USERS\RISKI\DOCUMENTS\OPENGL_SETUP\CMAKEFILES\69D42B5FAE0C54365F207EDEB9F4C114\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/riski/Documents/OpenGL_Setup -BC:/Users/riski/Documents/OpenGL_Setup --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/riski/Documents/OpenGL_Setup/XenonProject.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

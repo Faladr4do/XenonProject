@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "XenonProject.dir\\Debug\\main.obj",
+            "outputs": [
+                "XenonProject.dir\\Debug\\main.cpp.obj.dt.module.json",
+                "XenonProject.dir\\Debug\\main.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

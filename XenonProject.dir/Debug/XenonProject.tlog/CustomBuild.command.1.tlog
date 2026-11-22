@@ -1,0 +1,10 @@
+^C:\USERS\RISKI\DOCUMENTS\OPENGL_SETUP\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/riski/Documents/OpenGL_Setup -BC:/Users/riski/Documents/OpenGL_Setup --check-stamp-file C:/Users/riski/Documents/OpenGL_Setup/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
