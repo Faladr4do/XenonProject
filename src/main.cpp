@@ -1,9 +1,16 @@
 #include <iostream>
 #include <SDL3/SDL.h>
 #include <glad/glad.h>
+#include <iostream>
+#include <stdexcept>
+#include "World.hpp"
+#include "Enemy.hpp"
+#include "Spaceship.hpp"
 
 int main()
 {
+	using namespace xenon;
+
 	if (!SDL_Init(SDL_INIT_VIDEO)) {
 		std::cout << "SDL_Init failed: " << SDL_GetError() << std::endl;
 		return -1;
@@ -37,6 +44,8 @@ int main()
 		return -2;
 	}
 
+
+
 	SDL_Event windowEvent;
 	bool running = true;
 	while (running) {
@@ -45,6 +54,8 @@ int main()
 				running = false;
 			}
 		}
+
+
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);

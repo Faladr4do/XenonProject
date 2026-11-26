@@ -1,12 +1,44 @@
-CMakeLists.txt.user
+
+# CMake generated files
 CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
+CMakeFiles/
+CMakeScripts/
+Testing/
 Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
-_deps
+
+# CMake user-specific files
+CMakeLists.txt.user
 CMakeUserPresets.json
+
+# Downloaded dependencies
+_deps/
+
+# Build directories
+build/
+build-*/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.slnx
+
+# Compiled files
+*.exe
+*.dll
+*.obj
+*.pdb
+*.lib
+*.ilk
+*.exp

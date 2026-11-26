@@ -1,3 +1,6 @@
-﻿  Building Custom Rule C:/Users/riski/Documents/OpenGL_Setup/external/glad/CMakeLists.txt
-  glad.c
-  glad.vcxproj -> C:\Users\riski\Documents\OpenGL_Setup\external\glad\Debug\glad.lib
+﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2205,5): warning MSB9008: The referenced project C:\Users\riski\Documents\OpenGL_Setup\ZERO_CHECK.vcxproj does not exist.
+  Building Custom Rule C:/Users/riski/Documents/OpenGL_Setup/external/glad/CMakeLists.txt
+  CMake is re-running because C:/Users/riski/Documents/OpenGL_Setup/external/glad/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "C:/Users/riski/Documents/OpenGL_Setup" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(254,5): error MSB8066: Custom build for 'C:\Users\riski\Documents\OpenGL_Setup\external\glad\CMakeLists.txt' exited with code 1.
