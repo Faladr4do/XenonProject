@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Renderer.hpp"
+#include "Animator.hpp"
 #include "Entity.hpp"
 #include "Gun.hpp"
 
@@ -20,9 +22,33 @@ namespace xenon {
 
 		Shot* fire();
 
+
+		Spaceship(
+			GLuint texture,
+			int textureWidth,
+			int textureHeight
+		);
+
+		void Update(float deltaTime);
+
+		void Render(Renderer& renderer);
+
 	private:
 		
 		double health;
 		Gun* gun;
+
+		GLuint texture;
+
+		int textureWidth;
+		int textureHeight;
+
+		Animation animation;
+
+		float x;
+		float y;
+
+		float width;
+		float height;
 	};
 }

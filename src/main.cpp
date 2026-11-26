@@ -1,3 +1,5 @@
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 #include <iostream>
 #include <SDL3/SDL.h>
 #include <glad/glad.h>
@@ -6,7 +8,61 @@
 #include "World.hpp"
 #include "Enemy.hpp"
 #include "Spaceship.hpp"
+#include "Renderer.hpp"
 
+
+
+
+GLuint LoadTexture(
+	const char* path,
+	int& width,
+	int& height
+)
+{
+	int channels;
+
+	stbi_set_flip_vertically_on_load(true);
+
+	unsigned char* data = stbi_load(
+		path,
+		&width,
+		&height,
+		&channels,
+		0
+	);
+
+	if (!data)
+		throw std::runtime_error("Failed to load texture");
+
+	GLenum format = channels == 4 ? GL_RGBA : GL_RGB;
+
+	GLuint texture;
+
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	glTexImage2D(
+		GL_TEXTURE_2D,
+		0,
+		format,
+		width,
+		height,
+		0,
+		format,
+		GL_UNSIGNED_BYTE,
+		data
+	);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+	stbi_image_free(data);
+
+	return texture;
+}
 int main()
 {
 	using namespace xenon;
@@ -43,8 +99,32 @@ int main()
 		SDL_Quit();
 		return -2;
 	}
+	
 
 
+
+	// Load shader
+	GLuint shaderProgram = CreateShaderProgram();
+
+	// Load texture
+	int textureWidth;
+	int textureHeight;
+
+	GLuint spaceshipTexture = LoadTexture(
+		"assets/textures/spaceship.png",
+		textureWidth,
+		textureHeight
+	);
+
+	// Create renderer
+	Renderer renderer(shaderProgram, 800, 600);
+
+	// Create spaceship
+	Spaceship spaceship(
+		spaceshipTexture,
+		textureWidth,
+		textureHeight
+	);
 
 	SDL_Event windowEvent;
 	bool running = true;
